@@ -3,23 +3,34 @@
 <head>
 	<title>days to 70%</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
-	
+	<link rel="stylesheet" type="text/css" href="bulma.css">
 </head>
 <body>
 	<header>
 		<h1 class="title">Calculate Habit Rate</h1>
 	</header>	
 	<form>
-		<label>Desired Percent:</label>
-		<input placeholder=".74" class="desired-percent" type="number" name="desired-percent"> <br>
-		<label>Days Counting:</label>
-		<input placeholder="82"class="days-counting" type="number" name="days-counting"> <br>
-		<label># of Days Practiced:</label>
-		<input placeholder="65"class="days-practiced" type="number" name="days-practiced"> <br>
-		<button id="checkButton" type="button" >Find Rate</button> 
+		<table>
+			<tr>
+				<td><label>Desired Percent</label></td>
+				<td><input placeholder=".74" class="desired-percent" type="number" name="desired-percent"></td> 
+			</tr> 
+			<tr>
+				<td><label>Days Counting</label></td>
+			 	<td><input placeholder="82"class="days-counting" type="number" name="days-counting"></td>
+ 			</tr> 
+			<tr>
+				<td><label># of Days Practiced</label></td>
+			 	<td><input placeholder="65"class="days-practiced" type="number" name="days-practiced"></td>
+ 			</tr> 
+		</table>
+		<button id="checkButton" type="button" >Find Rate</button> 	
 	</form>
-	<div class="days-display hidden"></div>
+	
 <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src='app.js'></script>
 </body>
+<footer>
+	<div class="days-display hidden"></div>
+</footer>
 </html>	
