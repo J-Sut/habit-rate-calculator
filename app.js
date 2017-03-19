@@ -1,53 +1,40 @@
 
 //1 state management
 
-//functions that. modify state.. 
-
+//2 functions that modify state
 
 function getDaysCounting() {
-	result = $('.days-counting').val()
-	console.log("DC " + result);
+	result = Number($('.days-counting').val());
 	return result;
-
 };
 
-function getDaysMeditated(){
-	result = $('.days-practiced').val();
-	console.log("DM " + result);
+function getDaysPracticed(){
+	result = Number($('.days-practiced').val());
 	return result;
 }
 
 function getDesiredPercentage() {
-	result = $('.desired-percent').val();
-	console.log("DP " + result);
+	result = Number($('.desired-percent').val());
 	return result;
 };
 
-//var myDaysCounting = 541;
-//var myDaysMeditated = 324;
-
-//var desiredPercent = 0.775;
-
-function getTo70(daysCounting, daysMeditated, desiredPercent) {
-	console.log("from event function " + daysCounting + " " + daysMeditated + " " + desiredPercent);
-	if (daysMeditated/daysCounting < desiredPercent) {
+//3. functions that render state
+function getToPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting) {
+	if (daysPracticed/daysCounting < desiredPercent) {
 		daysCounting += 1;
-		daysMeditated += 1;
-		console.log(daysCounting, daysMeditated);
-		//getTo70(daysCounting, daysMeditated, desiredPercent);
+		daysPracticed += 1;
+		getToPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting);
 	} else {
-		$('.days-display').text(daysCounting - 541);
+		$('.days-display').removeClass('hidden');
+		$('.days-display').text("To reach " + desiredPercent + ", you will need to practice for " + (daysCounting - initDaysCounting) + " days in a row.");
 	}
 };
-
-//3. functions that render state
-
 
 //4. Event listeners
 $('#checkButton').click(function() {
 	var daysCounting = getDaysCounting();
-	var daysMeditated = getDaysMeditated();
+	var initDaysCounting = daysCounting;
+	var daysPracticed = getDaysPracticed();
 	var desiredPercent = getDesiredPercentage();
-	//console.log("from event listener " + daysCounting + " " + daysMeditated + " " + desiredPercent);
-	getTo70(daysCounting, daysMeditated, desiredPercent);
+	getToPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting);
 });

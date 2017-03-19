@@ -1,3 +1,49 @@
-h2 {
-	background-color: red;
+* {
+	padding: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 1.1em;
+	font-family: Georgia, Helvetica;
+}
+
+header {
+	background-color: brown;
+	max-width: 100%;
+}
+
+form {
+	max-width: 100%;
+	background-color: beige;
+}
+
+.title {
+	background-color: tan;
+}
+
+#checkButton {
+	margin: 10px;
+}
+
+.days-display {
+	background-color: brown;
+	max-width: 100%;
+	color: white;
+	font-size: 2em;
+}
+
+.hidden {
+	display: none;	
+}
+
+.columns {
+
+}
+
+#column1 {
+	background-color: black;
+}
+
+#column2 {
+	background-color: black;
 }
