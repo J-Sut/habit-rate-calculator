@@ -19,11 +19,11 @@ function getDesiredPercentage() {
 };
 
 //3. functions that render state
-function getToPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting) {
+function getToDesiredPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting) {
 	if (daysPracticed/daysCounting < desiredPercent) {
 		daysCounting += 1;
 		daysPracticed += 1;
-		getToPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting);
+		getToDesiredPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting);
 	} else {
 		$('.days-display').removeClass('hidden');
 		$('.days-display').text("To reach " + desiredPercent + ", you will need to practice for " + (daysCounting - initDaysCounting) + " days in a row.");
@@ -36,5 +36,5 @@ $('#checkButton').click(function() {
 	var initDaysCounting = daysCounting;
 	var daysPracticed = getDaysPracticed();
 	var desiredPercent = getDesiredPercentage();
-	getToPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting);
+	getToDesiredPercent(daysCounting, daysPracticed, desiredPercent, initDaysCounting);
 });
